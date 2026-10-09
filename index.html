@@ -38,6 +38,8 @@
     }
     document.addEventListener("DOMContentLoaded", pick);
     window.addEventListener("hashchange", pick);
+    // The browser jumps to the #anchor after loading; the page starts at the top instead.
+    window.addEventListener("load", function () { setTimeout(function () { window.scrollTo(0, 0); }, 0); });
   </script>
 </head>
 <body>
