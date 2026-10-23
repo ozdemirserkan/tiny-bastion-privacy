@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiny Bastion — Support</title>
+  <style>
+    :root { --bg: #1a1c2c; --ink: #f4f4f4; --muted: #94b0c2; --gold: #ffcd75; --line: #333c57; }
+    body { background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; }
+    main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+    h1 { color: var(--gold); font-size: 1.5rem; margin: 1.2rem 0 0; }
+    h2 { color: var(--gold); font-size: 1.05rem; margin: 1.4rem 0 0.2rem; }
+    p { margin: 0.3rem 0 0.8rem; }
+    a { color: var(--gold); overflow-wrap: anywhere; }
+    section { border-bottom: 1px solid var(--line); padding-bottom: 24px; }
+    nav a[aria-current] { color: var(--ink); text-decoration: none; font-weight: 600; }
+    /* With JavaScript only the chosen language is shown; without it (crawlers, reviewers) all of them. */
+    .one section { display: none; }
+    .one section.shown { display: block; border-bottom: 0; }
+  </style>
+  <script>
+    // Same language choice as the privacy page: #<language code>, else the browser's language, else English.
+    function pick() {
+      var codes = ["tr", "en", "de", "es", "fr", "pt", "it"];
+      var want = (location.hash || "").slice(1).toLowerCase();
+      if (codes.indexOf(want) < 0) want = (navigator.language || "en").slice(0, 2).toLowerCase();
+      if (codes.indexOf(want) < 0) want = "en";
+      document.documentElement.classList.add("one");
+      document.documentElement.lang = want;
+      codes.forEach(function (c) {
+        var s = document.getElementById(c), a = document.querySelector('nav a[href="#' + c + '"]');
+        if (s) s.classList.toggle("shown", c === want);
+        if (a) { if (c === want) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); }
+      });
+      window.scrollTo(0, 0);
+    }
+    document.addEventListener("DOMContentLoaded", pick);
+    window.addEventListener("hashchange", pick);
+    window.addEventListener("load", function () { setTimeout(function () { window.scrollTo(0, 0); }, 0); });
+  </script>
+</head>
+<body>
+<main>
+  <!-- GDD §14 phase 17: the App Store's support URL. Same languages as the privacy page. -->
+  <nav>
+    <a href="#tr">Türkçe</a> <a href="#en">English</a> <a href="#de">Deutsch</a> <a href="#es">Español</a>
+    <a href="#fr">Français</a> <a href="#pt">Português</a> <a href="#it">Italiano</a>
+  </nav>
+
+  <section id="tr" lang="tr">
+    <h1>Tiny Bastion — Destek</h1>
+    <h2>İletişim</h2>
+    <p>Soru, hata bildirimi ve öneriler için: <a href="mailto:serkanozdemirdev@gmail.com">serkanozdemirdev@gmail.com</a>.
+       Telefonunun modelini ve oyunun sürümünü (Ayarlar → Hakkında) yazarsan daha hızlı yardım edebilirim.</p>
+    <h2>İlerlemem nerede saklanıyor?</h2>
+    <p>Yalnızca telefonunda. Oyun internete bağlanmaz, bulut kaydı yoktur. Uygulamayı silersen ya da Ayarlar'dan
+       "Kaydı sıfırla"yı seçersen ilerleme silinir; yeni bir telefona taşınmaz.</p>
+    <h2>Satın alma ve iade</h2>
+    <p>Oyunu aynı hesapla yeniden yüklemek ücretsizdir. İade talepleri oyunu aldığın mağaza üzerinden yapılır:
+       <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> ya da
+       <a href="https://reportaproblem.apple.com">Apple</a>.</p>
+    <h2>Gizlilik</h2>
+    <p>Oyun hiçbir veri toplamaz: <a href="./#tr">gizlilik politikası</a>.</p>
+  </section>
+
+  <section id="en" lang="en">
+    <h1>Tiny Bastion — Support</h1>
+    <h2>Contact</h2>
+    <p>Questions, bug reports and ideas: <a href="mailto:serkanozdemirdev@gmail.com">serkanozdemirdev@gmail.com</a>.
+       Please include your phone model and the game's version (Settings → About) so I can help faster.</p>
+    <h2>Where is my progress saved?</h2>
+    <p>Only on your phone. The game never connects to the internet and has no cloud save. Deleting the app or choosing
+       "Reset progress" in the settings removes your progress; it does not move to a new phone.</p>
+    <h2>Purchase and refunds</h2>
+    <p>Reinstalling the game with the same account is free. Refunds are requested from the store you bought it from:
+       <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> or
+       <a href="https://reportaproblem.apple.com">Apple</a>.</p>
+    <h2>Privacy</h2>
+    <p>The game collects no data: <a href="./#en">privacy policy</a>.</p>
+  </section>
+
+  <section id="de" lang="de">
+    <h1>Tiny Bastion — Support</h1>
+    <h2>Kontakt</h2>
+    <p>Fragen, Fehlerberichte und Ideen: <a href="mailto:serkanozdemirdev@gmail.com">serkanozdemirdev@gmail.com</a>.
+       Gib bitte dein Handymodell und die Spielversion (Optionen → Info) an, dann kann ich schneller helfen.</p>
+    <h2>Wo wird mein Fortschritt gespeichert?</h2>
+    <p>Nur auf deinem Handy. Das Spiel verbindet sich nie mit dem Internet und hat keinen Cloud-Speicher. Wenn du die App
+       löschst oder in den Optionen „Alles löschen“ wählst, ist der Fortschritt weg; er wird nicht auf ein
+       neues Handy übertragen.</p>
+    <h2>Kauf und Erstattung</h2>
+    <p>Mit demselben Konto kannst du das Spiel kostenlos erneut installieren. Erstattungen beantragst du beim Store, in
+       dem du gekauft hast: <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> oder
+       <a href="https://reportaproblem.apple.com">Apple</a>.</p>
+    <h2>Datenschutz</h2>
+    <p>Das Spiel erhebt keine Daten: <a href="./#de">Datenschutzerklärung</a>.</p>
+  </section>
+
+  <section id="es" lang="es">
+    <h1>Tiny Bastion — Soporte</h1>
+    <h2>Contacto</h2>
+    <p>Preguntas, errores e ideas: <a href="mailto:serkanozdemirdev@gmail.com">serkanozdemirdev@gmail.com</a>.
+       Indica el modelo de tu teléfono y la versión del juego (Ajustes → Acerca de) para que pueda ayudarte antes.</p>
+    <h2>¿Dónde se guarda mi progreso?</h2>
+    <p>Solo en tu teléfono. El juego nunca se conecta a internet y no tiene guardado en la nube. Si borras la app o eliges
+       «Borrar partida» en los ajustes, el progreso se elimina; no pasa a un teléfono nuevo.</p>
+    <h2>Compra y reembolsos</h2>
+    <p>Reinstalar el juego con la misma cuenta es gratis. Los reembolsos se piden a la tienda donde lo compraste:
+       <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> o
+       <a href="https://reportaproblem.apple.com">Apple</a>.</p>
+    <h2>Privacidad</h2>
+    <p>El juego no recoge ningún dato: <a href="./#es">política de privacidad</a>.</p>
+  </section>
+
+  <section id="fr" lang="fr">
+    <h1>Tiny Bastion — Assistance</h1>
+    <h2>Contact</h2>
+    <p>Questions, bugs et idées : <a href="mailto:serkanozdemirdev@gmail.com">serkanozdemirdev@gmail.com</a>.
+       Indique le modèle de ton téléphone et la version du jeu (Réglages → À propos) pour que je puisse t'aider plus vite.</p>
+    <h2>Où ma progression est-elle enregistrée ?</h2>
+    <p>Uniquement sur ton téléphone. Le jeu ne se connecte jamais à internet et n'a pas de sauvegarde en ligne. Si tu
+       supprimes l'appli ou choisis « Tout effacer » dans les réglages, la progression est effacée ; elle
+       ne passe pas sur un nouveau téléphone.</p>
+    <h2>Achat et remboursement</h2>
+    <p>Réinstaller le jeu avec le même compte est gratuit. Les remboursements se demandent à la boutique où tu l'as acheté :
+       <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> ou
+       <a href="https://reportaproblem.apple.com">Apple</a>.</p>
+    <h2>Confidentialité</h2>
+    <p>Le jeu ne collecte aucune donnée : <a href="./#fr">politique de confidentialité</a>.</p>
+  </section>
+
+  <section id="pt" lang="pt">
+    <h1>Tiny Bastion — Suporte</h1>
+    <h2>Contato</h2>
+    <p>Dúvidas, erros e ideias: <a href="mailto:serkanozdemirdev@gmail.com">serkanozdemirdev@gmail.com</a>.
+       Informe o modelo do seu celular e a versão do jogo (Ajustes → Sobre) para que eu possa ajudar mais rápido.</p>
+    <h2>Onde meu progresso fica salvo?</h2>
+    <p>Só no seu celular. O jogo nunca se conecta à internet e não tem salvamento na nuvem. Se você apagar o app ou
+       escolher "Apagar progresso" nos ajustes, o progresso é apagado; ele não passa para um celular novo.</p>
+    <h2>Compra e reembolso</h2>
+    <p>Reinstalar o jogo com a mesma conta é grátis. Reembolsos são pedidos à loja onde você comprou:
+       <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> ou
+       <a href="https://reportaproblem.apple.com">Apple</a>.</p>
+    <h2>Privacidade</h2>
+    <p>O jogo não coleta nenhum dado: <a href="./#pt">política de privacidade</a>.</p>
+  </section>
+
+  <section id="it" lang="it">
+    <h1>Tiny Bastion — Assistenza</h1>
+    <h2>Contatti</h2>
+    <p>Domande, bug e idee: <a href="mailto:serkanozdemirdev@gmail.com">serkanozdemirdev@gmail.com</a>.
+       Indica il modello del tuo telefono e la versione del gioco (Opzioni → Info) così posso aiutarti più in fretta.</p>
+    <h2>Dove vengono salvati i miei progressi?</h2>
+    <p>Solo sul tuo telefono. Il gioco non si collega mai a internet e non ha salvataggi nel cloud. Se elimini l'app o
+       scegli "Azzera tutto" nelle opzioni, i progressi vengono cancellati; non passano a un nuovo telefono.</p>
+    <h2>Acquisto e rimborsi</h2>
+    <p>Reinstallare il gioco con lo stesso account è gratuito. I rimborsi si chiedono allo store in cui l'hai acquistato:
+       <a href="https://support.google.com/googleplay/answer/2479637">Google Play</a> o
+       <a href="https://reportaproblem.apple.com">Apple</a>.</p>
+    <h2>Privacy</h2>
+    <p>Il gioco non raccoglie alcun dato: <a href="./#it">informativa sulla privacy</a>.</p>
+  </section>
+</main>
+</body>
+</html>
